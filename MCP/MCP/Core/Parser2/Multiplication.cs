@@ -32,7 +32,15 @@ namespace MCP.Core.Basic.AltParser
                             break;
 
                         case '/':
-                            result /= GetValue(members[i + 1]);
+                            double temp = GetValue(members[i + 1]);
+                            if (temp != 0.0)
+                            {
+                                result /= temp;
+                            }
+                            else
+                            {
+                                throw new Exception("Division by zero");
+                            }
                             break;
 
                         default:
